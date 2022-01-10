@@ -3,10 +3,8 @@ package com.wallapop.marsrover.application.command
 import com.wallapop.marsrover.application.dto.CoordinateDTO
 import com.wallapop.marsrover.application.dto.MarsRoverDTO
 import com.wallapop.marsrover.domain.CoordinateVO
-import com.wallapop.marsrover.domain.MarsAggregate
 import com.wallapop.marsrover.domain.MarsRoverAggregate
 import com.wallapop.marsrover.domain.OrientationVO
-import com.wallapop.marsrover.domain.repository.MarsRepository
 import com.wallapop.marsrover.domain.repository.MarsRoverRepository
 import org.junit.Test
 import org.junit.jupiter.api.AfterEach

@@ -15,7 +15,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.wallapop.MarsRover")
+    mainClass.set("com.wallapop.marsrover.entrypoint.cli.App")
 }
 
 java {
@@ -31,4 +31,8 @@ java.sourceSets["main"].java {
 
 tasks.test {
     useJUnit()
+}
+
+val run by tasks.getting(JavaExec::class) {
+    standardInput = System.`in`
 }

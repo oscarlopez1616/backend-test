@@ -9,16 +9,28 @@ import com.wallapop.marsrover.infraestructure.persistence.memory.InMemoryMarsRep
 import com.wallapop.marsrover.infraestructure.persistence.memory.InMemoryMarsRoverRepository
 import java.util.*
 
-fun main(args: Array<String>) {
+class App{
+    fun initialize(){
+        val marsRepository = InMemoryMarsRepository()
+        val marsRoverRepository = InMemoryMarsRoverRepository()
 
-    val marsRepository = InMemoryMarsRepository()
-    val marsRoverRepository = InMemoryMarsRoverRepository()
+        MarsRoverController(
+            Scanner(System.`in`),
+            CreateMarsCommandHandler(marsRepository),
+            SettleMarsRoverCommandHandler(marsRoverRepository),
+            MarsRoverMovementCommandHandler(marsRepository,marsRoverRepository),
+            RetrieveMarsRoverInfoQueryHandler(marsRoverRepository)
+        ).execute()
+    }
 
-    MarsRoverController(
-        Scanner(System.`in`),
-        CreateMarsCommandHandler(marsRepository),
-        SettleMarsRoverCommandHandler(marsRoverRepository),
-        MarsRoverMovementCommandHandler(marsRepository,marsRoverRepository),
-        RetrieveMarsRoverInfoQueryHandler(marsRoverRepository)
-    ).execute()
+    companion object {
+        @JvmStatic
+        fun main(args : Array<String>) {
+            //println("asfd")
+            App().initialize()
+        }
+    }
+
 }
+
+
