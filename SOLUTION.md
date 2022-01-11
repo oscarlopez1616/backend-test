@@ -12,7 +12,7 @@
 
 ###How to execute App
 ```bash
-./gradlew run run --scan
+./gradlew run --scan
 ```
 
 thanks for your time
